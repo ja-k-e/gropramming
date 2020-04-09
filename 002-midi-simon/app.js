@@ -1,3 +1,3 @@
-import { MIDI } from "./script/MIDI.js";
+import { Game } from "./script/Game.js";
 
-const DEVICE = "MPD218 Port A";
+new Game();
