@@ -1,0 +1,127 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --color: #fff000;
+  --color-dark: #998f00;
+  --color-shadow: rgba(0, 0, 0, 1);
+  background-color: #222;
+  background-image: linear-gradient(-45deg, #111, #222);
+  font-family: "Luckiest Guy", cursive;
+}
+
+h1 {
+  /* This variable is updated by the javascript */
+  --ratio: 1;
+  color: var(--color);
+  display: inline-block;
+  font-size: 3.5rem;
+  left: 50%;
+  line-height: 1;
+  margin: 0;
+  opacity: var(--ratio);
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%) translateZ(0) rotate(-7deg)
+    scale(var(--ratio));
+  transform-origin: 50% 50%;
+}
+
+h1 div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+h1 div:first-child {
+  font-size: 12rem;
+  text-shadow: 6px 6px 0px var(--color-dark), 12px 12px 6px var(--color-shadow);
+}
+h1 div:last-child {
+  font-size: 4rem;
+  margin-top: -2rem;
+  text-shadow: 3px 3px 0px var(--color-dark), 6px 6px 3px var(--color-shadow);
+}
+h1 span {
+  display: block;
+  transform: translateZ(0);
+  transform-origin: 50% 50%;
+}
+h1 span + span {
+  margin-left: 0.25rem;
+}
+
+@keyframes throb-letter-odd {
+  from {
+    transform: translateZ(0) scale(1) rotate(-5deg);
+  }
+  to {
+    transform: translateZ(0) scale(1.0625) rotate(5deg);
+  }
+}
+@keyframes throb-letter-even {
+  from {
+    transform: translateZ(0) scale(1) rotate(5deg);
+  }
+  to {
+    transform: translateZ(0) scale(1.0625) rotate(-5deg);
+  }
+}
+
+/* odd spans rotate left => right */
+h1 div span:nth-child(odd) {
+  transform: translateZ(0) rotate(-5deg);
+  animation: throb-letter-odd 500ms ease-in-out alternate infinite;
+}
+/* event spans rotate right => left */
+h1 div span:nth-child(even) {
+  transform: translateZ(0) rotate(5deg);
+  animation: throb-letter-even 500ms ease-in-out alternate infinite;
+}
+
+/* each span has a different delay */
+h1 div span:nth-child(1) {
+  animation-delay: 0ms;
+}
+h1 div span:nth-child(2) {
+  animation-delay: 40ms;
+}
+h1 div span:nth-child(3) {
+  animation-delay: 80ms;
+}
+h1 div span:nth-child(4) {
+  animation-delay: 120ms;
+}
+h1 div span:nth-child(5) {
+  animation-delay: 160ms;
+}
+h1 div span:nth-child(6) {
+  animation-delay: 200ms;
+}
+h1 div span:nth-child(7) {
+  animation-delay: 240ms;
+}
+h1 div span:nth-child(8) {
+  animation-delay: 280ms;
+}
+h1 div span:nth-child(9) {
+  animation-delay: 300ms;
+}
+
+/* every three children have different offset animation durations */
+h1 div span:nth-child(3n + 1) {
+  animation-duration: 600ms;
+}
+h1 div span:nth-child(3n + 2) {
+  animation-duration: 650ms;
+}
+h1 div span:nth-child(3n + 3) {
+  animation-duration: 550ms;
+}
