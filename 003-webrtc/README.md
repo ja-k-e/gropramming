@@ -10,9 +10,9 @@ python -m SimpleHTTPServer 3000
 ```
 
 - create new app on firebase
-- plug in credentials
-- enable google and anonymous sign in methods
-- go to realtime database (not firestore)
+- copy web app credentials to `script/config.js`
+- enable google and anonymous sign in methods on firebase
+- go to firebase realtime database console (not firestore)
 - set the following rules for the database:
 
 ```
