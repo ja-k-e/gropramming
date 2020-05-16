@@ -9,15 +9,14 @@ class MIDIEvent {
       name: face.name,
     };
     if (data) {
-      const { type, name, a, b } = MIDIEvent.describedValuesFromData(data);
-      this.name = name;
+      const { type, a, b } = MIDIEvent.describedValuesFromData(data);
       this.type = type;
       this.a = a;
       this.b = b;
     } else {
-      this.name =
-        face.state === "connected" ? "Device Connected" : "Device Disconnected";
-      this.type = MIDIEvent.toType(this.name);
+      this.type = MIDIEvent.toType(
+        face.state === "connected" ? "Device Connected" : "Device Disconnected"
+      );
       this.a = null;
       this.b = null;
     }
@@ -41,18 +40,15 @@ class MIDIEvent {
     return {
       channel,
       type: MIDIEvent.toType(name),
-      name,
       a: {
         value: value(byte1),
         ratio: ratio(byte1),
         type: string(MIDIEvent.toType(label1)),
-        label: string(label1),
       },
       b: {
         value: value(byte2),
         ratio: ratio(byte2),
         type: string(MIDIEvent.toType(label2)),
-        label: string(label2),
       },
     };
   }
